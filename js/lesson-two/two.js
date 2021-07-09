@@ -4,6 +4,11 @@ function handleClick() {
     copyToClipboard(text.innerText);
 }
 
-function copyToClipboard(text) {
-    console.log(text);
+function copyToClipboard(str) {
+    const element = document.createElement('textarea');
+    element.value = str;
+    document.body.appendChild(element);
+    element.select();
+    document.execCommand('copy');
+    document.body.removeChild(element);
 }
